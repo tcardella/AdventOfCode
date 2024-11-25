@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1004366-4f13-48ed-ac18-65d2138c1619" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/2023/01.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2023/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2023/inputs/01/example1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2023/inputs/01/example2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2023/inputs/01/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2023/tests/test_01.py" afterDir="false" />
+    <list default="true" id="d1004366-4f13-48ed-ac18-65d2138c1619" name="Changes" comment="Just kicking the tires a bit trying to figure out a standard process for AoC 2024.">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/AdventOfCode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AdventOfCode.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +67,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\deadl\Source\Repos\AdventOfCode\2023\" />
+    </key>
+  </component>
   <component name="RunManager" selected="Python tests.pytest for test_01.test_part_2">
     <configuration name="pytest for 01.test_compare" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="AdventOfCode" />
@@ -162,7 +159,7 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/2023/tests/test_01.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/2023/test_01.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
@@ -192,8 +189,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1732510292420</updated>
-      <workItem from="1732510293530" duration="15344000" />
+      <workItem from="1732510293530" duration="17999000" />
     </task>
+    <task id="LOCAL-00001" summary="Just kicking the tires a bit trying to figure out a standard process for AoC 2024.">
+      <option name="closed" value="true" />
+      <created>1732554164598</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732554164598</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,6 +216,10 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Just kicking the tires a bit trying to figure out a standard process for AoC 2024." />
+    <option name="LAST_COMMIT_MESSAGE" value="Just kicking the tires a bit trying to figure out a standard process for AoC 2024." />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -218,26 +228,11 @@
           <line>8</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/2023/tests/test_01.py</url>
-          <line>63</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/2023/tests/test_01.py</url>
-          <line>61</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/2023/tests/test_01.py</url>
-          <line>42</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_test_01_py.coverage" NAME="pytest in test_01.py Coverage Results" MODIFIED="1732544004154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023/tests" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_test_01_py.coverage" NAME="pytest in test_01.py Coverage Results" MODIFIED="1732554044286" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023" />
     <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_01_test_part_2.coverage" NAME="pytest for test_01.test_part_2 Coverage Results" MODIFIED="1732551153061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023/tests" />
     <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_01_test_addition.coverage" NAME="pytest for test_01.test_addition Coverage Results" MODIFIED="1732511612481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023/tests" />
     <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_01_test_Part0.coverage" NAME="pytest for test_01.test_Part0 Coverage Results" MODIFIED="1732512015485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023/tests" />
