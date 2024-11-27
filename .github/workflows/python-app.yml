@@ -47,8 +47,8 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        cd 2023
-        cd inputs
+        cd 2023/inputs/01
         ls
+        cd ../../../
         pwd
         pytest
