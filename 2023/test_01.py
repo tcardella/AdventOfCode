@@ -52,10 +52,10 @@ class Day01:
                         last_token = token
 
             if not first_token.isdigit():
-                first_token = self._text_tokens[first_token]
+                first_token = tokens[first_token]
 
             if not last_token.isdigit():
-                last_token = self._text_tokens[last_token]
+                last_token = tokens[last_token]
 
             value = int(f"{first_token}{last_token}")
             total_sum += value
@@ -64,8 +64,8 @@ class Day01:
 
 
 @pytest.mark.parametrize('input_file_path, expected', [
-    ('inputs/01/example1.txt', 142),
-    ('inputs/01/input.txt', 56465)
+    ('../inputs/01/example1.txt', 142),
+    ('../inputs/01/input.txt', 56465)
 ])
 def test_part1(input_file_path, expected):
     day01 = Day01()
@@ -74,8 +74,8 @@ def test_part1(input_file_path, expected):
 
 
 @pytest.mark.parametrize('input_file_path, expected', [
-    ('inputs/01/example2.txt', 281),
-    ('inputs/01/input.txt', 55902)
+    ('../inputs/01/example2.txt', 281),
+    ('../inputs/01/input.txt', 55902)
 ])
 def test_part_2(input_file_path, expected):
     day01 = Day01()
