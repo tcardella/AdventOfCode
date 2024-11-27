@@ -48,5 +48,7 @@ jobs:
     - name: Test with pytest
       run: |
         ls
-        cwd
+        cd 2023
+        ls
+        pwd
         pytest
