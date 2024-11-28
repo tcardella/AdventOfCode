@@ -3,14 +3,10 @@ import sys
 
 import pytest
 
-
 class Day01:
-    def __init__(self):
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        self.input_dir = os.path.join(script_dir, 'inputs/01')
 
     def part1(self, input_file_path: str):
-        with open(os.path.join(self.input_dir, input_file_path), 'r') as file:
+        with open(os.path.join(os.getcwd(), input_file_path), 'r') as file:
             inputs = file.readlines()
 
         tokens = "1|2|3|4|5|6|7|8|9".split('|')
@@ -27,7 +23,7 @@ class Day01:
         return total_sum
 
     def part2(self, input_file_path: str):
-        with open(os.path.join(self.input_dir, input_file_path), 'r') as file:
+        with open(os.path.join(os.getcwd(), input_file_path), 'r') as file:
             inputs = file.readlines()
 
         total_sum = 0
@@ -71,8 +67,8 @@ class Day01:
 
 
 @pytest.mark.parametrize('input_file_path, expected', [
-    ('example1.txt', 142),
-    ('input.txt', 56465)
+    ('inputs/01/example1.txt', 142),
+    ('inputs/01/input.txt', 56465)
 ])
 def test_part1(input_file_path, expected):
     day01 = Day01()
@@ -81,8 +77,8 @@ def test_part1(input_file_path, expected):
 
 
 @pytest.mark.parametrize('input_file_path, expected', [
-    ('example2.txt', 281),
-    ('input.txt', 55902)
+    ('inputs/01/example2.txt', 281),
+    ('inputs/01/input.txt', 55902)
 ])
 def test_part_2(input_file_path, expected):
     day01 = Day01()
