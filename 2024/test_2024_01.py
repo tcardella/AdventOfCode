@@ -16,12 +16,12 @@ class Day01:
     ('inputs/01/example1.txt', 142),
     ('inputs/01/input.txt', 56465)
 ])
-def part1(input_file_path, expected):
+def test_part_1(input_file_path, expected):
     assert expected == expected
 
 @pytest.mark.parametrize('input_file_path, expected', [
     ('inputs/01/example1.txt', 142),
     ('inputs/01/input.txt', 56465)
 ])
-def part2(input_file_path, expected):
+def test_part_2(input_file_path, expected):
     assert expected == expected
