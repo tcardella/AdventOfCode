@@ -49,8 +49,6 @@ jobs:
       run: |
         cd 2023
         pytest
-        cd 2024
-        pytest
     - name: Test 2024 with pytest
       run: |
         cd 2024
