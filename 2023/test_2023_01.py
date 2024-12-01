@@ -70,7 +70,7 @@ class Day01:
     ('inputs/01/example1.txt', 142),
     ('inputs/01/input.txt', 56465)
 ])
-def test_part1(input_file_path, expected):
+def test_part_1(input_file_path, expected):
     day01 = Day01()
     actual = day01.part1(input_file_path)
     assert actual == expected
