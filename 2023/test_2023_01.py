@@ -1,69 +1,68 @@
-import os
 import sys
 
 import pytest
 
-class Day01:
 
-    def part1(self, input_file_path: str):
-        with open(os.path.join(os.getcwd(), input_file_path), 'r') as file:
-            inputs = file.readlines()
+def part1(input_file_path: str):
+    with open(input_file_path, 'r') as file:
+        inputs = file.readlines()
 
-        tokens = "1|2|3|4|5|6|7|8|9".split('|')
+    tokens = "1|2|3|4|5|6|7|8|9".split('|')
 
-        total_sum = 0
+    total_sum = 0
 
-        for input_line in inputs:
-            output_tokens = [char for char in input_line if char in tokens]
+    for input_line in inputs:
+        output_tokens = [char for char in input_line if char in tokens]
 
-            value = int(f"{output_tokens[0]}{output_tokens[-1]}")
+        value = int(f"{output_tokens[0]}{output_tokens[-1]}")
 
-            total_sum += value
+        total_sum += value
 
-        return total_sum
+    return total_sum
 
-    def part2(self, input_file_path: str):
-        with open(os.path.join(os.getcwd(), input_file_path), 'r') as file:
-            inputs = file.readlines()
 
-        total_sum = 0
+def part2(input_file_path: str):
+    with open(input_file_path, 'r') as file:
+        inputs = file.readlines()
 
-        tokens = "1|2|3|4|5|6|7|8|9|one|two|three|four|five|six|seven|eight|nine".split('|')
-        str_to_int_dict = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8,
-                           "nine": 9}
+    total_sum: int = 0
 
-        for input_line in inputs:
-            input_line = input_line.strip()
+    tokens = "1|2|3|4|5|6|7|8|9|one|two|three|four|five|six|seven|eight|nine".split('|')
+    str_to_int_dict = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8,
+                       "nine": 9}
 
-            first_idx = sys.maxsize
-            first_token = ''
+    for input_line in inputs:
+        input_line = input_line.strip()
 
-            last_idx = -1
-            last_token = ''
+        first_idx = sys.maxsize
+        first_token = ''
 
-            for token in tokens:
-                f_idx = input_line.find(token)
-                rf_idx = input_line.rfind(token)
+        last_idx = -1
+        last_token = ''
 
-                if f_idx >= 0 or rf_idx >= 0:
-                    if first_idx > f_idx:
-                        first_idx = f_idx
-                        first_token = token
+        for token in tokens:
+            f_idx = input_line.find(token)
+            rf_idx = input_line.rfind(token)
 
-                    if last_idx < rf_idx:
-                        last_idx = rf_idx
-                        last_token = token
+            if f_idx >= 0 or rf_idx >= 0:
+                if first_idx > f_idx:
+                    first_idx = f_idx
+                    first_token = token
 
-            if not first_token.isdigit():
-                first_token = str_to_int_dict[first_token]
+                if last_idx < rf_idx:
+                    last_idx = rf_idx
+                    last_token = token
 
-            if not last_token.isdigit():
-                last_token = str_to_int_dict[last_token]
+        if not first_token.isdigit():
+            first_token = str_to_int_dict[first_token]
 
-            value = int(f"{first_token}{last_token}")
-            total_sum += value
+        if not last_token.isdigit():
+            last_token = str_to_int_dict[last_token]
 
-        return total_sum
+        value = int(f"{first_token}{last_token}")
+        total_sum += value
+
+    return total_sum
 
 
 @pytest.mark.parametrize('input_file_path, expected', [
@@ -71,8 +70,7 @@ class Day01:
     ('inputs/01/input.txt', 56465)
 ])
 def test_part_1(input_file_path, expected):
-    day01 = Day01()
-    actual = day01.part1(input_file_path)
+    actual = part1(input_file_path)
     assert actual == expected
 
 
@@ -81,6 +79,5 @@ def test_part_1(input_file_path, expected):
     ('inputs/01/input.txt', 55902)
 ])
 def test_part_2(input_file_path, expected):
-    day01 = Day01()
-    actual = day01.part2(input_file_path)
+    actual = part2(input_file_path)
     assert actual == expected
