@@ -5,52 +5,42 @@ import pytest
 
 def parse_input(input_file_path: str):
     with open(input_file_path, 'r', encoding="utf-8-sig") as file:
-        lines = file.readlines()
+        return file.readlines()
 
-    return lines
 
 def part1(input_file_path: str):
     lines = parse_input(input_file_path)
-
     pattern = r"\b(mul|xmul|do_not_mul)\b\((?P<a>\d+),(?P<b>\d+)\)"
-
-    sum = 0
+    matches = []
     for line in lines:
-        matches = re.finditer(pattern, line)
+        for match in re.finditer(pattern, line):
+            matches.append(int(match.group("a")) * int(match.group("b")))
 
-        for match in matches:
-            sum += (int(match.group("a")) * int(match.group("b")))
-
-    return sum
+    return sum(matches)
 
 
 def part2(input_file_path: str):
     lines = parse_input(input_file_path)
-
     pattern = r"(?P<on>do\(\)|don't\(\))|\b(mul|xmul|do_not_mul)\b\((?P<a>\d+),(?P<b>\d+)\)"
-
-    output = []
-    sum = 0
+    matches = []
     for line in lines:
-        matches = re.finditer(pattern, line)
-
-        for match in matches:
-            if(match.group("on")):
-                output.append(match.group("on"))
+        for match in re.finditer(pattern, line):
+            if match.group("on"):
+                matches.append(match.group("on"))
             elif match.group("a") and match.group("b"):
-                output.append(int(match.group("a")) * int(match.group("b")))
+                matches.append(int(match.group("a")) * int(match.group("b")))
 
-    on = True
-
-    for e in range(len(output)):
-        if output[e] == "don't()":
-            on = False
-        elif output[e] == "do()":
-            on = True
+    total = 0
+    is_on = True
+    for match in matches:
+        if match == "don't()":
+            is_on = False
+        elif match == "do()":
+            is_on = True
         else:
-            sum += output[e] if on else 0
+            total += int(match) if is_on else 0
 
-    return sum
+    return total
 
 
 @pytest.mark.parametrize('input_file_path, expected', [
