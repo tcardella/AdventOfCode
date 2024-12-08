@@ -11,13 +11,13 @@ def part1(input_file_path: str):
     grid = parse_input(input_file_path)
 
     curr_pos = find_start(grid)
-    path = [pos[0] for pos in find_path(grid, curr_pos, [])]
+    path = [pos[0] for pos in find_path(grid, curr_pos)]
     return len(list(set(path)))
 
 
-def find_path(grid, curr_pos, path):
-    direction = get_next_direction()
-    path.append((curr_pos, direction))
+def find_path(grid, curr_pos):
+    direction = directions[0]
+    path = [(curr_pos, direction)]
 
     while is_in_bounds(curr_pos, grid):
         next_pos = (curr_pos[0] + direction[0], curr_pos[1] + direction[1])
@@ -28,7 +28,7 @@ def find_path(grid, curr_pos, path):
             path.append((next_pos, direction))
             curr_pos = next_pos
         else:
-            direction = get_next_direction()
+            direction = turn_right(direction)
     return path
 
 
@@ -54,15 +54,12 @@ def causes_loop(grid, curr_pos):
 
 
 def find_start(grid):
-    for r in range(len(grid)):
-        for c in range(len(grid[0])):
-            if grid[r][c] == '^':
-                return (r, c)
-    return (0, 0)
+    starts = [(r, c) for r in range(len(grid)) for c in range(len(grid[r])) if grid[r][c] == '^']
+    return starts[0]
 
 
-def is_obstruction(pos, map):
-    return map[pos[0]][pos[1]] == '#'
+def is_obstruction(pos, grid):
+    return grid[pos[0]][pos[1]] == '#'
 
 
 def is_in_bounds(pos, grid):
@@ -70,17 +67,6 @@ def is_in_bounds(pos, grid):
 
 
 directions = [(-1, 0), (0, 1), (1, 0), (0, -1)]
-i = 0
-
-
-def get_next_direction():
-    global i
-    if i == len(directions):
-        i = 0
-
-    dir = directions[i]
-    i += 1
-    return dir
 
 
 def turn_right(direction):
@@ -92,17 +78,13 @@ def part2(input_file_path: str):
     count = 0
     curr_pos = find_start(grid)
 
-    empty_positions = []
-    for r in range(len(grid)):
-        for c in range(len(grid[r])):
-            if grid[r][c] == '.':
-                empty_positions.append((r,c))
-
-    for r,c in empty_positions:
+    empty_positions = set((r, c) for r in range(len(grid)) for c in range(len(grid[r])) if grid[r][c] == '.')
+    path_positions = set(pos[0] for pos in find_path(grid, curr_pos))
+    for r, c in empty_positions.intersection(path_positions):
         grid[r][c] = '#'
 
         if causes_loop(grid, curr_pos):
-            count+=1
+            count += 1
 
         grid[r][c] = '.'
 
@@ -120,7 +102,7 @@ def test_part_1(input_file_path, expected):
 
 @pytest.mark.parametrize('input_file_path, expected', [
     ('inputs/06/example.txt', 6),
-    ('inputs/06/input.txt', 5346)
+    ('inputs/06/input.txt', 1831)
 ])
 def test_part_2(input_file_path, expected):
     actual = part2(input_file_path)
