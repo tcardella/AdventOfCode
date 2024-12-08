@@ -1,5 +1,5 @@
 import pytest
-
+from typing import List
 
 def parse_input(input_file_path: str):
     with open(input_file_path, 'r', encoding="utf-8-sig") as file:
@@ -14,7 +14,7 @@ def part1(input_file_path: str):
     return grid_word_search(lines, 'XMAS')
 
 
-def grid_word_search(grid: list[list[str]], word: str) -> int:
+def grid_word_search(grid: List[List[str]], word: str) -> int:
     word_length = len(word)
     match_count = 0
     directions = [(0, 1), (0, -1), (1, 0), (-1, 0), (1, 1), (1, -1), (-1, 1), (-1, -1)]
