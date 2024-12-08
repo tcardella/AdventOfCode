@@ -14,7 +14,7 @@ def part1(input_file_path: str):
     return grid_word_search(lines, 'XMAS')
 
 
-def grid_word_search(grid: list[list], word: str):
+def grid_word_search(grid: list[list[str]], word: str):
     word_length = len(word)
     counter = 0
 
