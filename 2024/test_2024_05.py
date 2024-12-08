@@ -8,8 +8,8 @@ def parse_input(input_file_path: str):
         sections = file.read().strip().split('\n\n')
         rules = []
         for line in sections[0].splitlines():
-            x,y = map(int, line.split('|'))
-            rules.append([x,y])
+            x, y = map(int, line.split('|'))
+            rules.append([x, y])
 
         updates = []
         for line in sections[1].splitlines():
@@ -23,23 +23,24 @@ def part1(input_file_path: str):
 
     return calculate_middle_sum(rules, updates)
 
+
 def is_update_valid(update, rules):
-    page_index = {page:i for i, page in enumerate(update)}
-    for x,y in rules:
+    page_index = {page: i for i, page in enumerate(update)}
+    for x, y in rules:
         if x in page_index and y in page_index:
             if page_index[x] > page_index[y]:
                 return False
     return True
 
+
 def calculate_middle_sum(rules, updates):
-    valid_updates= []
+    valid_updates = []
     for update in updates:
         if is_update_valid(update, rules):
             valid_updates.append(update)
 
-    middle_values = [update[len(update)//2] for update in valid_updates]
+    middle_values = [update[len(update) // 2] for update in valid_updates]
     return sum(middle_values)
-
 
 
 def part2(input_file_path: str):
@@ -47,19 +48,21 @@ def part2(input_file_path: str):
 
     return reorder_incorrect_updates(rules, updates)
 
+
 def reorder_incorrect_updates(rules, updates):
     reordered_middle_values = []
     for update in updates:
         if not is_update_valid(update, rules):
-            applicable_rules = [(x,y) for x,y in rules if x in update and y in update]
+            applicable_rules = [(x, y) for x, y in rules if x in update and y in update]
             reordered_update = topological_sort(update, applicable_rules)
-            reordered_middle_values.append(reordered_update[len(reordered_update)//2])
+            reordered_middle_values.append(reordered_update[len(reordered_update) // 2])
     return sum(reordered_middle_values)
+
 
 def topological_sort(nodes, edges):
     graph = defaultdict(list)
     in_degree = defaultdict(int)
-    for x,y in edges:
+    for x, y in edges:
         graph[x].append(y)
         in_degree[y] += 1
         in_degree.setdefault(x, 0)
@@ -79,6 +82,7 @@ def topological_sort(nodes, edges):
 
     return sorted_order
 
+
 @pytest.mark.parametrize('input_file_path, expected', [
     ('inputs/05/example.txt', 143),
     ('inputs/05/input.txt', 6260)
@@ -89,8 +93,8 @@ def test_part_1(input_file_path, expected):
 
 
 @pytest.mark.parametrize('input_file_path, expected', [
-     ('inputs/05/example.txt', 123),
-     ('inputs/05/input.txt', 5346)
+    ('inputs/05/example.txt', 123),
+    ('inputs/05/input.txt', 5346)
 ])
 def test_part_2(input_file_path, expected):
     actual = part2(input_file_path)
