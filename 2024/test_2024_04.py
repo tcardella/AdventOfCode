@@ -14,29 +14,31 @@ def part1(input_file_path: str):
     return grid_word_search(lines, 'XMAS')
 
 
-def grid_word_search(grid: list[list[str]], word: str):
+def grid_word_search(grid: list[list[str]], word: str) -> int:
     word_length = len(word)
-    counter = 0
+    match_count = 0
+    directions = [(0, 1), (0, -1), (1, 0), (-1, 0), (1, 1), (1, -1), (-1, 1), (-1, -1)]
 
-    directions = [(0, 1),(0, -1),(1, 0),(-1, 0),(1, 1),(1, -1),(-1, 1),(-1, -1)]
-
-    def is_valid(x, y):
+    def is_within_bounds(x: int, y: int) -> bool:
         return 0 <= x < len(grid) and 0 <= y < len(grid[0])
 
-    for r, row in enumerate(grid):
-        for c, column in enumerate(row):
-            if grid[r][c] == word[0]:  # Match the first letter of the word
-                for dr, dc in directions:  # Explore all 8 directions
-                    match_coords = []
-                    for i in range(word_length):
-                        nr, nc = r + dr * i, c + dc * i
-                        if not is_valid(nr, nc) or grid[nr][nc] != word[i]:
-                            break
-                        match_coords.append((nr, nc))
-                    if len(match_coords) == word_length:  # Full match found
-                        counter += 1
+    def is_word_match(row: int, col: int, delta_row: int, delta_col: int) -> bool:
+        matched_coordinates = []
+        for i in range(word_length):
+            new_row, new_col = row + delta_row * i, col + delta_col * i
+            if not is_within_bounds(new_row, new_col) or grid[new_row][new_col] != word[i]:
+                return False
+            matched_coordinates.append((new_row, new_col))
+        return len(matched_coordinates) == word_length
 
-    return counter
+    for row_index, row in enumerate(grid):
+        for col_index, cell in enumerate(row):
+            if cell == word[0]:  # Match the first letter of the word
+                for delta_row, delta_col in directions:  # Explore all 8 directions
+                    if is_word_match(row_index, col_index, delta_row, delta_col):
+                        match_count += 1
+
+    return match_count
 
 
 def part2(input_file_path: str):
