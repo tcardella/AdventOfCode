@@ -1,6 +1,3 @@
-import math
-from lib2to3.patcomp import tokenize_wrapper
-
 import pytest
 
 
@@ -13,15 +10,7 @@ def parse_input(input_file_path: str):
 def part1(input_file_path: str):
     grid = parse_input(input_file_path)
     antinodes = set()
-    antennas = {}
-    for r in range(len(grid)):
-        for c in range(len(grid[r])):
-            if grid[r][c] != '.':
-                key = grid[r][c]
-                if key in antennas.keys():
-                    antennas[key].append((r,c))
-                else:
-                    antennas[key] = [(r,c)]
+    antennas = collect_antennas(grid)
 
     for key, positions in antennas.items():
         n = len(positions)
@@ -35,29 +24,17 @@ def part1(input_file_path: str):
                 a2 = (x1 - dx, y1 - dy)
 
                 for ax, ay in (a1, a2):
-                    if(0 <= ax < len(grid) and 0 <= ay < len(grid[0])):
+                    if 0 <= ax < len(grid) and 0 <= ay < len(grid[0]):
                         antinodes.add((ax, ay))
 
     return len(antinodes)
 
+
 def part2(input_file_path: str):
     grid = parse_input(input_file_path)
 
-    row_max = len(grid)
-    row_min = 0
-    col_max = len(grid[0])
-    col_min = 0
-
     antinodes = set()
-    antennas = {}
-    for r in range(len(grid)):
-        for c in range(len(grid[r])):
-            if grid[r][c] != '.':
-                key = grid[r][c]
-                if key in antennas.keys():
-                    antennas[key].append((r, c))
-                else:
-                    antennas[key] = [(r, c)]
+    antennas = collect_antennas(grid)
 
     for key, positions in antennas.items():
         n = len(positions)
@@ -84,6 +61,20 @@ def part2(input_file_path: str):
     return len(antinodes)
 
 
+def collect_antennas(grid):
+    antennas = {}
+    for r in range(len(grid)):
+        for c in range(len(grid[r])):
+            if grid[r][c] != '.':
+                key = grid[r][c]
+                if key in antennas.keys():
+                    antennas[key].append((r, c))
+                else:
+                    antennas[key] = [(r, c)]
+
+    return antennas
+
+
 def is_in_grid(grid, ax, ay):
     return 0 <= ax < len(grid) and 0 <= ay < len(grid[0])
 
@@ -99,7 +90,7 @@ def test_part_1(input_file_path, expected):
 
 @pytest.mark.parametrize('input_file_path, expected', [
     ('inputs/08/example.txt', 34),
-     ('inputs/08/input.txt', 1259)
+    ('inputs/08/input.txt', 1259)
 ])
 def test_part_2(input_file_path, expected):
     actual = part2(input_file_path)
