@@ -5,12 +5,8 @@ import pytest
 
 def parse_input(input_file_path: str):
     with open(input_file_path, 'r', encoding="utf-8-sig") as file:
-        stripped_lines = [line.strip() for line in file.readlines()]
-        grid = [list(row) for row in stripped_lines]
-
-        grid = [[int(value) for value in row] for row in grid]
-
-        return grid
+        return [[int(value) for value in row] for row in
+                [list(row) for row in [line.strip() for line in file.readlines()]]]
 
 
 def find_trailheads(grid):
@@ -54,31 +50,6 @@ def bfs(grid, start):
     return len(reachable_nines)
 
 
-def move(grid, pos, direction, visited):
-    score = 0
-    new_pos = pos[0] + direction[0], pos[1] + direction[1]
-
-    if is_on_map(grid, new_pos) and new_pos not in visited:
-        if grid[new_pos[0]][new_pos[1]] - grid[pos[0]][pos[1]] == 1:
-            print(new_pos)
-
-            visited.add(new_pos)
-
-        if grid[new_pos[0]][new_pos[1]] == 9:
-            print("9:", new_pos)
-            score += 1
-        else:
-            for new_direction in directions:
-                score += move(grid, new_pos, new_direction, visited)
-
-        visited.remove(new_pos)
-
-    return score
-
-
-directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-
-
 def dfs(grid, pos, visited):
     row, col = pos
     current_height = grid[row][col]
@@ -89,7 +60,7 @@ def dfs(grid, pos, visited):
     distinct_trails = 0
     visited.add(pos)
 
-    for dr, dc in directions:
+    for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
         new_pos = row + dr, col + dc
         if is_on_map(grid, new_pos) and new_pos not in visited:
             new_row, new_col = new_pos
