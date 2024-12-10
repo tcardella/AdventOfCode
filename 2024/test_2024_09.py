@@ -15,6 +15,7 @@ def part1(input_file_path: str):
 
 def decompress(disk_map):
     file_id = 0
+
     output = []
     for i, e in enumerate(disk_map):
         if i % 2 == 0:
@@ -28,20 +29,20 @@ def decompress(disk_map):
     return output
 
 
-def find_first_gap(s):
-    for i in range(len(s)):
-        if s[i] == '.':
+def find_first_gap(disk_map):
+    for i in range(len(disk_map)):
+        if disk_map[i] == '.':
             return i
 
 
-def find_last_value(s):
-    for i in range(len(s) - 1, -1, -1):
-        if s[i] != '.':
+def find_last_value(disk_map):
+    for i in range(len(disk_map) - 1, -1, -1):
+        if disk_map[i] != '.':
             return i
 
 
-def swap(s, a, b):
-    s[a], s[b] = s[b], s[a]
+def swap(disk_map, a, b):
+    disk_map[a], disk_map[b] = disk_map[b], disk_map[a]
 
 
 def defragment(disk_map):
@@ -65,16 +66,31 @@ def calculate_checksum(disk_map):
     return checksum
 
 
-def swap_chunks(s, space_start, space_end, value_start, value_end):
-    spaces = [e for e in range(space_start, space_end + 1)]
-    values = [e for e in range(value_start, value_end + 1)]
+def calculate_checksum2(disk_map):
+    checksum = 0
+    for i, e in enumerate(disk_map):
+        if e == '.':
+            continue
+        checksum += i * int(e)
+    return checksum
+
+
+def swap_chunks(disk_map, g_start, g_end, v_start, v_end):
+    spaces = [e for e in range(g_start, g_end + 1)]
+    values = [e for e in range(v_start, v_end + 1)]
     for e in list(zip(spaces, values)):
-        swap(s, e[0], e[1])
+        swap(disk_map, e[0], e[1])
+
+
+def part2(input_file_path: str):
+    disk_map = parse_input(input_file_path)
+    disk_map = decompress(disk_map)
+    disk_map = defragment2(disk_map)
+    return calculate_checksum2(disk_map)
 
 
 def defragment2(disk_map):
     unique_file_ids = list(reversed(list(set([i for i in disk_map if i != '.']))))
-
     for file_id in unique_file_ids:
         file_block = get_file_block(disk_map, file_id)
         spaces = get_spaces(disk_map[:file_block[0]])
@@ -87,13 +103,6 @@ def defragment2(disk_map):
                 break
 
     return disk_map
-
-
-def part2(input_file_path: str):
-    disk_map = parse_input(input_file_path)
-    disk_map = decompress(disk_map)
-    disk_map = defragment2(disk_map)
-    return calculate_checksum(disk_map)
 
 
 def get_spaces(disk_map):
