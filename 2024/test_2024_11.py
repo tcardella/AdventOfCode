@@ -1,4 +1,5 @@
 from collections import Counter
+from functools import cache
 
 import pytest
 
@@ -37,8 +38,7 @@ def part1(input_file_path: str):
 def part2(input_file_path: str):
     stones = parse_input(input_file_path)
 
-    stones = [0]
-    stone_counts = {0: 1}
+
     i = 0
     while i < 75:
         output = []
@@ -117,6 +117,26 @@ def part2b(input_file_path: str):
     total_stones = sum(state_counts.values())
     return total_stones
 
+@cache
+def parts(stone, blink):
+    if blink == 75:
+        return 1
+
+    if stone == 0:
+        return parts(1, blink + 1)
+
+    elif len(str(stone)) % 2 == 0:
+        stone_string = str(stone)
+        midpoint = int(len(stone_string) / 2)
+        return parts(int(stone_string[:midpoint]), blink + 1)+ parts(int(stone_string[midpoint:]), blink + 1)
+    else:
+        return parts(stone * 2024, blink + 1)
+
+def part2c(input_file_path: str):
+    stones = parse_input(input_file_path)
+
+    return sum(parts(stone, 0) for stone in stones)
+
 @pytest.mark.parametrize('input_file_path, expected', [
     #('inputs/11/example1.txt', 36),
     ('inputs/11/example2.txt', 55312),
@@ -130,8 +150,8 @@ def test_part_1(input_file_path, expected):
 @pytest.mark.parametrize('input_file_path, expected', [
     # ('inputs/11/example1.txt', 81),
     # ('inputs/11/example2.txt', 81),
-     #('inputs/11/input.txt', 1116)
+     ('inputs/11/input.txt', 257335372288947)
 ])
 def test_part_2(input_file_path, expected):
-    actual = part2(input_file_path)
+    actual = part2c(input_file_path)
     assert actual == expected
