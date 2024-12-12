@@ -13,7 +13,8 @@ def part1(input_file_path: str):
     return sum(blinker25(stone, 0) for stone in stones)
 
 
-@functools.cache
+@functools.lru_cache(maxsize=None)
+# @functools.cache
 def blinker25(stone, blink):
     if blink == 25:
         return 1
@@ -29,7 +30,8 @@ def blinker25(stone, blink):
         return blinker25(stone * 2024, blink + 1)
 
 
-@functools.cache
+@functools.lru_cache(maxsize=None)
+# @functools.cache
 def blinker75(stone, blink):
     if blink == 75:
         return 1
