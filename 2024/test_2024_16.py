@@ -143,50 +143,64 @@ def part2(input_file_path: str):
     maze = parse_input(input_file_path)
     start, end = find_start_and_end(maze)
 
-    directions = {
-        'up': (-1, 0),
-        'down': (1, 0),
-        'left': (0, -1),
-        'right': (0, 1)
-    }
+    directions = {(-1, 0),(0, 1),(1, 0),(0, -1)} # up, right, down, left
 
     pq = []
-    heapq.heappush(pq, (0, 0, start, 'right', {start}))
-
-    visited = {}
-    best_tiles = set()
-    minimal_score = None
+    visited = set()
+    heapq.heappush(pq, (0, start, 3))
+    dist = {}
+    best_tiles = None
 
     while pq:
-        score, steps, current, direction, path_tiles = heapq.heappop(pq)
-
-        if minimal_score is not None and score > minimal_score:
-            break
-
-        if current == end:
-            if minimal_score is None:
-                best_tiles.update(path_tiles)
-                continue
-
-        if (current, direction) in visited and visited[(current, direction)] <= score:
+        d, pos, dir = heapq.heappop(pq)
+        if (pos, dir) not in dist:
+            dist[(pos, dir)] = d
+        if pos == end and best_tiles is None:
+            best = d
+        if (pos, dir) in visited:
             continue
-        visited[(current, direction)] = score
+        visited.add((pos, dir))
+        dir = directions[dir]
+        new_pos = (pos[0] + dir[0], pos[1] + dir[1])
+        if 0 <= new_pos[0] < len(maze) and 0 <= new_pos[1] < len(maze[0]) and maze[new_pos[0]][new_pos[1]] != '#':
+            heapq.heappush(pq, (d+1, new_pos, dir))
+        heapq.heappush(pq, (d+1000, pos, (dir+1)%4))
+        heapq.heappush(pq, (d+1000, pos, (dir+3)%4))
 
-        for next_pos in get_neighbors(maze, current):
-            next_direction = next_pos[0] - current[0], next_pos[1] - current[1]
+    print(best)
 
-            for dir_name, dir_vector in directions.items():
-                if next_direction == dir_vector:
-                    turn_cost = 0 if dir_name == direction else 1000
-                    next_score = score + 1 + turn_cost
-                    next_path_tiles = path_tiles | {next_pos}
-                    heapq.heappush(pq, (next_score, steps + 1, next_pos, dir_name, next_path_tiles))
-                    break
-
-    for p in best_tiles:
-        maze[p[0]][p[1]] = 'O'
-
-    dump_grid(maze)
+    #     for n in get_neighbors(maze, pos):
+    #         for d, v in directions.items():
+    #             if n == (pos[0] + v[0], pos[1] + v[1]):
+    #                 heapq.heappush(pq, (dist[(pos, dir)] + 1, n, d))
+    #
+    #     if minimal_score is not None and score > minimal_score:
+    #         break
+    #
+    #     if current == end:
+    #         if minimal_score is None:
+    #             best_tiles.update(path_tiles)
+    #             continue
+    #
+    #     if (current, direction) in visited and visited[(current, direction)] <= score:
+    #         continue
+    #     visited[(current, direction)] = score
+    #
+    #     for next_pos in get_neighbors(maze, current):
+    #         next_direction = next_pos[0] - current[0], next_pos[1] - current[1]
+    #
+    #         for dir_name, dir_vector in directions.items():
+    #             if next_direction == dir_vector:
+    #                 turn_cost = 0 if dir_name == direction else 1000
+    #                 next_score = score + 1 + turn_cost
+    #                 next_path_tiles = path_tiles | {next_pos}
+    #                 heapq.heappush(pq, (next_score, steps + 1, next_pos, dir_name, next_path_tiles))
+    #                 break
+    #
+    # for p in best_tiles:
+    #     maze[p[0]][p[1]] = 'O'
+    #
+    # dump_grid(maze)
 
     return len(best_tiles)
 
