@@ -8,137 +8,83 @@ def parse_input(input_file_path: str):
         return list(file.read().split())
 
 
-def find_regions(garden_plot):
-    rows, cols = len(garden_plot), len(garden_plot[0])
-    regions = {}
-
-    for r in range(rows):
-        for c in range(cols):
-            if garden_plot[r][c] not in regions:
-                regions[garden_plot[r][c]] = (r, c)
-
-    return regions
-
-
-def find_region(garden_plot, region):
-    rows, cols = len(garden_plot), len(garden_plot[0])
-    for r in range(rows):
-        for c in range(cols):
-            if garden_plot[r][c] == region:
-                return r, c
-
-
-def part1(input_file_path: str):
-    garden_plot = parse_input(input_file_path)
-
-    total_price = 0
-    x = get_areas_and_perimeters(garden_plot)
-    for e in x:
-        total_price += e[0][0] * e[0][1]
-
-    return total_price
-
-
 def is_in_bounds(rows, cols, r, c):
     return 0 <= r < rows and 0 <= c < cols
 
 
-def get_areas_and_perimeters(grid):
+DIRECTIONS = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+
+
+def calculate_area_and_perimeter(grid, rows, cols, row, col, visited):
+    queue = deque([(row, col)])
+    area = 0
+    perimeter = 0
+    perimeter_plots = dict()
+    while queue:
+        r, c = queue.popleft()
+        if (r, c) in visited:
+            continue
+        visited.add((r, c))
+        area += 1
+        for dr, dc in DIRECTIONS:
+            nr, nc = r + dr, c + dc
+            if is_in_bounds(rows, cols, nr, nc) and grid[nr][nc] == grid[r][c]:
+                queue.append((nr, nc))
+            else:
+                perimeter += 1
+                if (dr, dc) not in perimeter_plots:
+                    perimeter_plots[(dr, dc)] = set()
+                perimeter_plots[(dr, dc)].add((r, c))
+    return area, perimeter, perimeter_plots
+
+
+def calculate_sides(perimeter_plots):
+    side_count = 0
+    for k, v in perimeter_plots.items():
+        visited = set()
+        for (r, c) in v:
+            if (r, c) not in visited:
+                side_count += 1
+                queue = deque([(r, c)])
+                while queue:
+                    r1, c1 = queue.popleft()
+                    if (r1, c1) in visited:
+                        continue
+                    visited.add((r1, c1))
+                    for dr, dc in DIRECTIONS:
+                        nr, nc = r1 + dr, c1 + dc
+                        if (nr, nc) in v:
+                            queue.append((nr, nc))
+    return side_count
+
+
+def get_region_info(grid):
     rows, cols = len(grid), len(grid[0])
     output = []
     visited = set()
 
-    region = ''
     for row in range(rows):
         for col in range(cols):
-            if (row, col) not in visited and grid[row][col] != region:
-                region = grid[row][col]
-                visited.add((row, col))
-                queue = deque([(row, col)])
-                perimeter = 0
-                area = 0
-
-                while queue:
-                    r, c = queue.popleft()
-                    area += 1
-                    local_perimeter = 4
-
-                    for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-                        nr, nc = r + dr, c + dc
-                        if 0 <= nr < rows and 0 <= nc < cols:
-                            if grid[nr][nc] == region:
-                                local_perimeter -= 1
-
-                                if (nr, nc) not in visited:
-                                    visited.add((nr, nc))
-                                    queue.append((nr, nc))
-
-                    perimeter += local_perimeter
-
-                output.append([(area, perimeter)])
-                region = ''
+            if (row, col) in visited:
+                continue
+            area, perimeter, perimeter_plots = calculate_area_and_perimeter(grid, rows, cols, row, col, visited)
+            side_count = calculate_sides(perimeter_plots)
+            output.append([(area, perimeter, side_count)])
 
     return output
 
 
-def get_areas_and_sides(garden_plot, region, row, col, visited):
-    rows, cols = len(garden_plot), len(garden_plot[0])
-    queue = deque([(row, col)])
-    visited.add((row, col))
-    area = 0
-    sides = 0
-
-    while queue:
-        r, c = queue.popleft()
-        area += 1
-
-        for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            nr, nc = r + dr, c + dc
-            if not is_in_bounds(rows, cols, nr, nc) or garden_plot[nr][nc] != region:
-                print(nr, nc)
-                sides += 1
-            elif (nr, nc) not in visited:
-                visited.add((nr, nc))
-                queue.append((nr, nc))
-
-    return area, sides
-
-
-def dfs(garden_plot, r, c, visited, region):
-    rows, cols = len(garden_plot), len(garden_plot[0])
-    stack = [(r,c)]
-    visited.add((r, c))
-    area = 0
-    sides = 0
-
-    directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-
-    while stack:
-        cr, cc = stack.pop()
-        area += 1
-
-        for dr, dc in directions:
-            nr, nc = cr + dr, cc + dc
-
-            if not is_in_bounds(rows, cols, nr, nc) or garden_plot[nr][nc] != region:
-                sides += 1
-            else:
-                if (nr,nc) not in visited:
-                    visited.add((nr, nc))
-                    stack.append((nr,nc))
-
-    return area, sides
+def part1(input_file_path: str):
+    garden_plot = parse_input(input_file_path)
+    region_info = get_region_info(garden_plot)
+    total_price = sum(region[0][0] * region[0][1] for region in region_info)
+    return total_price
 
 
 def part2(input_file_path: str):
     garden_plot = parse_input(input_file_path)
-    regions = find_regions(garden_plot)
-    total_price = 0
-
-    for key, region in regions.items():
-        for i, (perimeter, area, sides) in enumerate(region, 1):
-            total_price += area * sides
-
+    region_info = get_region_info(garden_plot)
+    total_price = sum(region[0][0] * region[0][2] for region in region_info)
     return total_price
 
 
@@ -157,7 +103,7 @@ def test_part_1(input_file_path, expected):
     ('inputs/12/example0.txt', 80),
     ('inputs/12/example1.txt', 436),
     ('inputs/12/example.txt', 1206),
-    ('inputs/12/input.txt', 1483212)
+    ('inputs/12/input.txt', 897062)
 ])
 def test_part_2(input_file_path, expected):
     actual = part2(input_file_path)
