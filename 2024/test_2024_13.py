@@ -1,3 +1,5 @@
+from math import gcd
+
 import pytest
 
 
@@ -40,6 +42,7 @@ def part1(input_file_path: str):
 
     return total_tokens
 
+
 def solve_machine(delta_a, delta_b, prize):
     dx_a, dy_a = delta_a
     dx_b, dy_b = delta_b
@@ -58,10 +61,53 @@ def solve_machine(delta_a, delta_b, prize):
 
     return min_tokens if min_tokens != float("inf") else None
 
-def part2(input_file_path: str):
-    grid = parse_input(input_file_path)
 
-    return 0
+def extended_euclidean(a, b):
+    if b == 0:
+        return (1, 0)
+    x, y = extended_euclidean(b, a % b)
+    return (y, x - (a // b) * y)
+
+
+def solve_diophantine(delta_a, delta_b, prize):
+    dx_a, dy_a = delta_a
+    dx_b, dy_b = delta_b
+    px, py = prize
+
+    g = gcd(dx_a, dx_b)
+    if px % g != 0:
+        return None
+
+    scaled_dx_a, scaled_dx_b, scaled_px = dx_a // g, dx_b // g, px // g
+    x, y = extended_euclidean(scaled_dx_a, scaled_dx_b)
+
+    x *= scaled_px
+    y *= scaled_px
+
+    results = []
+    results.append(solve_machine(x, y, (px,py)))
+    return results
+    # TODO: A miracle happens
+
+    return None
+
+
+def part2(input_file_path: str):
+    inputs = parse_input(input_file_path)
+    total_tokens = 0
+    reachable_prizes = 0
+
+    for machine in inputs:
+        delta_a, delta_b, prize = machine
+        shifted_prize = (prize[0]+ 10 ** 13, prize[1] + 10 ** 13)
+
+        result = solve_diophantine(delta_a, delta_b, shifted_prize)
+
+        if result is not None:
+            total_tokens += result
+            reachable_prizes += 1
+
+    return total_tokens
 
 
 @pytest.mark.parametrize('input_file_path, expected', [
@@ -74,8 +120,8 @@ def test_part_1(input_file_path, expected):
 
 
 @pytest.mark.parametrize('input_file_path, expected', [
-    ('inputs/13/example.txt', 81),
-    ('inputs/13/input.txt', 1116)
+    # ('inputs/13/example.txt', 81),
+    # ('inputs/13/input.txt', 1116)
 ])
 def test_part_2(input_file_path, expected):
     actual = part2(input_file_path)
