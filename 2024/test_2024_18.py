@@ -41,7 +41,7 @@ def part1(input_file_path: str, rows=70, cols=70, b=1024):
     start = (0, 0)
     end = (rows - 1, cols - 1)
 
-    dump_grid(grid)
+    # dump_grid(grid)
 
     steps = bfs(grid, start, end)
     return len(steps[1:])  # don't count the starting position
@@ -114,7 +114,7 @@ def test_part_1(input_file_path, expected, rows, cols, b):
 
 @pytest.mark.parametrize('input_file_path, expected, rows, cols', [
     ('inputs/18/example.txt', (1, 6), 7, 7),
-    ('inputs/18/input.txt', 338, 71, 71)
+    ('inputs/18/input.txt', (44,20), 71, 71)
 ])
 def test_part_2(input_file_path, expected, rows, cols):
     actual = part2(input_file_path, rows, cols)
