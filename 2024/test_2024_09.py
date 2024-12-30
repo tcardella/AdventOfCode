@@ -14,121 +14,84 @@ def part1(input_file_path: str):
 
 
 def decompress(disk_map):
+    output = []
     file_id = 0
 
-    output = []
     for i, e in enumerate(disk_map):
+        x = int(e)
         if i % 2 == 0:
-            for idx in range(int(disk_map[i])):
-                output.append(file_id)
+            output += [file_id] * x
             file_id += 1
         else:
-            for idx in range(int(disk_map[i])):
-                output.append('.')
+            output += [-1] * x
 
     return output
 
 
-def find_first_gap(disk_map):
-    for i in range(len(disk_map)):
-        if disk_map[i] == '.':
-            return i
-
-
-def find_last_value(disk_map):
-    for i in range(len(disk_map) - 1, -1, -1):
-        if disk_map[i] != '.':
-            return i
-
-
-def swap(disk_map, a, b):
-    disk_map[a], disk_map[b] = disk_map[b], disk_map[a]
-
-
 def defragment(disk_map):
-    start = find_first_gap(disk_map)
-    end = find_last_value(disk_map)
+    blanks = [i for i, e in enumerate(disk_map) if e == -1]
 
-    while start < end:
-        swap(disk_map, start, end)
-        start = find_first_gap(disk_map)
-        end = find_last_value(disk_map)
+    for i in blanks:
+        while disk_map[-1] == -1:
+            disk_map.pop()
+        if len(disk_map) <= i:
+            break
+        disk_map[i] = disk_map.pop()
 
     return disk_map
 
 
 def calculate_checksum(disk_map):
+    return sum(i * e for i, e in enumerate(disk_map))
+
+
+def calculate_checksum2(files):
     checksum = 0
-    for i, e in enumerate(disk_map):
-        if e == '.':
-            return checksum
-        checksum += i * int(e)
+    for file_id, (pos, size) in files.items():
+        for e in range(pos, pos + size):
+            checksum += e * file_id
     return checksum
-
-
-def calculate_checksum2(disk_map):
-    checksum = 0
-    for i, e in enumerate(disk_map):
-        if e == '.':
-            continue
-        checksum += i * int(e)
-    return checksum
-
-
-def swap_chunks(disk_map, g_start, g_end, v_start, v_end):
-    spaces = [e for e in range(g_start, g_end + 1)]
-    values = [e for e in range(v_start, v_end + 1)]
-    for e in list(zip(spaces, values)):
-        swap(disk_map, e[0], e[1])
 
 
 def part2(input_file_path: str):
     disk_map = parse_input(input_file_path)
-    disk_map = decompress(disk_map)
-    disk_map = defragment2(disk_map)
-    return calculate_checksum2(disk_map)
+    files = defragment2(disk_map)
+    return calculate_checksum2(files)
 
 
 def defragment2(disk_map):
-    unique_file_ids = list(reversed(list(set([i for i in disk_map if i != '.']))))
-    for file_id in unique_file_ids:
-        file_block = get_file_block(disk_map, file_id)
-        spaces = get_spaces(disk_map[:file_block[0]])
-        file_block_size = file_block[1] - file_block[0] + 1
+    files = {}
+    blanks = []
 
-        for space in spaces:
-            avail_space = space[1] - space[0] + 1
-            if avail_space >= file_block_size:
-                swap_chunks(disk_map, space[0], space[1], file_block[0], file_block[1])
+    file_id = 0
+    pos = 0
+
+    for i, e in enumerate(disk_map):
+        x = int(e)
+        if i % 2 == 0:
+            files[file_id] = (pos, x)
+            file_id += 1
+        else:
+            if x != 0:
+                blanks.append((pos, x))
+        pos += x
+
+    while file_id > 0:
+        file_id -= 1
+        pos, size = files[file_id]
+        for i, (start, length) in enumerate(blanks):
+            if start >= pos:
+                blanks = blanks[:i]
+                break
+            if size <= length:
+                files[file_id] = (start, size)
+                if size == length:
+                    blanks.pop(i)
+                else:
+                    blanks[i] = (start + size, length - size)
                 break
 
-    return disk_map
-
-
-def get_spaces(disk_map):
-    sequences = []
-    start = None
-
-    for i, char in enumerate(disk_map):
-        if char == '.' and start is None:
-            # Start of a new sequence of dots
-            start = i
-        elif char != '.' and start is not None:
-            # End of a sequence of dots
-            sequences.append((start, i - 1))
-            start = None
-
-    # Make sure to capture if the last part of the string is a dot sequence
-    if start is not None:
-        sequences.append((start, len(disk_map) - 1))
-
-    return sequences
-
-
-def get_file_block(disk_map, file_id):
-    a = [(i, e) for i, e in enumerate(disk_map)]
-    b = [(i, e) for i, e in a if e == file_id]
-    return b[0][0], b[-1][0]
+    return files
 
 
 @pytest.mark.parametrize('input_file_path, expected', [
