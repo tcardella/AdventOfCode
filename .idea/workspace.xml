@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1004366-4f13-48ed-ac18-65d2138c1619" name="Changes" comment="Just kicking the tires a bit trying to figure out a standard process for AoC 2024.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="d1004366-4f13-48ed-ac18-65d2138c1619" name="Changes" comment="Added missing example files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2024/test_2024_13.py" beforeDir="false" afterPath="$PROJECT_DIR$/2024/test_2024_13.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,21 +23,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "tcardella"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;tcardella&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/tcardella/AdventOfCode.git",
-    "accountId": "8ed5c781-0464-40de-a6d5-29c885da932e"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/tcardella/AdventOfCode.git&quot;,
+    &quot;accountId&quot;: &quot;8ed5c781-0464-40de-a6d5-29c885da932e&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2pKMPweDjNgYgztlUisFF2cS8yK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -54,7 +54,11 @@
     "Python tests.pytest for test_01.test_part1.executor": "Run",
     "Python tests.pytest for test_01.test_part_1.executor": "Run",
     "Python tests.pytest for test_01.test_part_2.executor": "Debug",
+    "Python tests.pytest for test_2024_13.test_part_1.executor": "Run",
+    "Python tests.pytest for test_2024_13.test_part_2.executor": "Run",
+    "Python tests.pytest for test_2024_20.test_part_1.executor": "Run",
     "Python tests.pytest in test_01.py.executor": "Run",
+    "Python tests.pytest in test_2024_13.py.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
@@ -63,7 +67,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable",
+    "settings.editor.selected.configurable": "ml.llm.AIAssistantPromptsLibrary",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -72,61 +76,7 @@
       <recent name="D:\Users\deadl\Source\Repos\AdventOfCode\2023\" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test_01.test_part_2">
-    <configuration name="pytest for 01.test_compare" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="AdventOfCode" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/2023" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;01.test_compare&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_01.test_compare" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="AdventOfCode" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/2023/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_01.test_compare&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_01.test_part1" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="AdventOfCode" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/2023/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_01.test_part1&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python tests.pytest in test_2024_13.py">
     <configuration name="pytest for test_01.test_part_2" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="AdventOfCode" />
       <option name="ENV_FILES" value="" />
@@ -145,13 +95,13 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest in test_01.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for test_2024_13.test_part_1" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="AdventOfCode" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/2023/tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/2024" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -159,17 +109,71 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/2023/test_01.py&quot;" />
+      <option name="_new_target" value="&quot;test_2024_13.test_part_1&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_2024_13.test_part_2" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="AdventOfCode" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/2024" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_2024_13.test_part_2&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_2024_20.test_part_1" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="AdventOfCode" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/2024" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_2024_20.test_part_1&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest in test_2024_13.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="AdventOfCode" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/2024" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/2024/test_2024_13.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.pytest in test_2024_13.py" />
+        <item itemvalue="Python tests.pytest for test_2024_13.test_part_2" />
+        <item itemvalue="Python tests.pytest for test_2024_13.test_part_1" />
+        <item itemvalue="Python tests.pytest for test_2024_20.test_part_1" />
         <item itemvalue="Python tests.pytest for test_01.test_part_2" />
-        <item itemvalue="Python tests.pytest for test_01.test_compare" />
-        <item itemvalue="Python tests.pytest for 01.test_compare" />
-        <item itemvalue="Python tests.pytest in test_01.py" />
-        <item itemvalue="Python tests.pytest for test_01.test_part1" />
       </list>
     </recent_temporary>
   </component>
@@ -199,7 +203,39 @@
       <option name="project" value="LOCAL" />
       <updated>1732554164598</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="2024 Days 20 WIP, commented out unit tests (part 1 is brute force and runs too long)">
+      <option name="closed" value="true" />
+      <created>1735349122149</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1735349122149</updated>
+    </task>
+    <task id="LOCAL-00003" summary="2024 Days 21 WIP, commented out unit tests">
+      <option name="closed" value="true" />
+      <created>1735349549396</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1735349549396</updated>
+    </task>
+    <task id="LOCAL-00004" summary="2024 Days 21 WIP, commented out unit tests">
+      <option name="closed" value="true" />
+      <created>1735349980737</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1735349980737</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added missing example files">
+      <option name="closed" value="true" />
+      <created>1735355149744</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1735355149744</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,7 +254,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Just kicking the tires a bit trying to figure out a standard process for AoC 2024." />
-    <option name="LAST_COMMIT_MESSAGE" value="Just kicking the tires a bit trying to figure out a standard process for AoC 2024." />
+    <MESSAGE value="2024 Days 20 WIP, commented out unit tests (part 1 is brute force and runs too long)" />
+    <MESSAGE value="2024 Days 21 WIP, commented out unit tests" />
+    <MESSAGE value="Added missing example files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added missing example files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -232,14 +271,88 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_test_01_py.coverage" NAME="pytest in test_01.py Coverage Results" MODIFIED="1732554044286" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023" />
-    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_01_test_part_2.coverage" NAME="pytest for test_01.test_part_2 Coverage Results" MODIFIED="1732551153061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023/tests" />
-    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_01_test_addition.coverage" NAME="pytest for test_01.test_addition Coverage Results" MODIFIED="1732511612481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023/tests" />
-    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_01_test_Part0.coverage" NAME="pytest for test_01.test_Part0 Coverage Results" MODIFIED="1732512015485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023/tests" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$scratch2.coverage" NAME="scratch2 Coverage Results" MODIFIED="1734758915639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_21_test_part_0__1_.coverage" NAME="pytest for test_2024_21.test_part_0 (1) Coverage Results" MODIFIED="1734762367925" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_12_test_part_1.coverage" NAME="pytest for test_2024_12.test_part_1 Coverage Results" MODIFIED="1734652638603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_14_test_part_2.coverage" NAME="pytest for test_2024_14.test_part_2 Coverage Results" MODIFIED="1734210709951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
     <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_01_test_01_0.coverage" NAME="pytest for test_01.test_01_0 Coverage Results" MODIFIED="1732513375242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023/tests" />
-    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_01_test_compare.coverage" NAME="pytest for 01.test_compare Coverage Results" MODIFIED="1732546273646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023" />
-    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_01_test_part_1.coverage" NAME="pytest for test_01.test_part_1 Coverage Results" MODIFIED="1732539596250" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023/tests" />
-    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_01_test_part1.coverage" NAME="pytest for test_01.test_part1 Coverage Results" MODIFIED="1732541771171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023/tests" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_17_test_part_1.coverage" NAME="pytest for test_2024_17.test_part_1 Coverage Results" MODIFIED="1734468428253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_test_2024_20_py.coverage" NAME="pytest in test_2024_20.py Coverage Results" MODIFIED="1735347861563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_test_2024_06_py.coverage" NAME="pytest in test_2024_06.py Coverage Results" MODIFIED="1733628693254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_test_2024_05_py.coverage" NAME="pytest in test_2024_05.py Coverage Results" MODIFIED="1733628216978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_07_test_part_1.coverage" NAME="pytest for test_2024_07.test_part_1 Coverage Results" MODIFIED="1733694618391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_15_test_can_move_up.coverage" NAME="pytest for test_2024_15.test_can_move_up Coverage Results" MODIFIED="1734295276327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_test_2024_04_py.coverage" NAME="pytest in test_2024_04.py Coverage Results" MODIFIED="1733619774775" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_18_test_part_2.coverage" NAME="pytest for test_2024_18.test_part_2 Coverage Results" MODIFIED="1734502975949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_17_test_scenario_1.coverage" NAME="pytest for test_2024_17.test_scenario_1 Coverage Results" MODIFIED="1734416997305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_2024.coverage" NAME="pytest in 2024 Coverage Results" MODIFIED="1733206331568" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_13_test_part_2.coverage" NAME="pytest for test_2024_13.test_part_2 Coverage Results" MODIFIED="1735527319854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_02_test_part_1.coverage" NAME="pytest for test_2024_02.test_part_1 Coverage Results" MODIFIED="1733118674592" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_06a_test_part_2.coverage" NAME="pytest for test_2024_06a.test_part_2 Coverage Results" MODIFIED="1733536622111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_17_test_scenario_4.coverage" NAME="pytest for test_2024_17.test_scenario_4 Coverage Results" MODIFIED="1734419676167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_17.coverage" NAME="pytest for test_2024_17 Coverage Results" MODIFIED="1734419790795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_09_test_part_1.coverage" NAME="pytest for test_2024_09.test_part_1 Coverage Results" MODIFIED="1733783990923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_09_test_find_last_values.coverage" NAME="pytest for test_2024_09.test_find_last_values Coverage Results" MODIFIED="1733768911719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_2023.coverage" NAME="pytest in 2023 Coverage Results" MODIFIED="1733169076617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_16_test_part_1.coverage" NAME="pytest for test_2024_16.test_part_1 Coverage Results" MODIFIED="1734386172464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_01_test_Part0.coverage" NAME="pytest for test_01.test_Part0 Coverage Results" MODIFIED="1732512015485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023/tests" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_01_test_part1.coverage" NAME="pytest for test_01.test_part1 Coverage Results" MODIFIED="1732750686385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023/tests" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_03_test_part_2.coverage" NAME="pytest for test_2024_03.test_part_2 Coverage Results" MODIFIED="1733205720940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
     <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_01_test_compare.coverage" NAME="pytest for test_01.test_compare Coverage Results" MODIFIED="1732551142021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023/tests" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_06_test_part_1.coverage" NAME="pytest for test_2024_06.test_part_1 Coverage Results" MODIFIED="1733628161264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_17_test_part_2.coverage" NAME="pytest for test_2024_17.test_part_2 Coverage Results" MODIFIED="1734470953193" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_12.coverage" NAME="pytest for test_2024_12 Coverage Results" MODIFIED="1734637523652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_17_test_scenario_3.coverage" NAME="pytest for test_2024_17.test_scenario_3 Coverage Results" MODIFIED="1734452765745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_13_test_part_1.coverage" NAME="pytest for test_2024_13.test_part_1 Coverage Results" MODIFIED="1735527075044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_03_test_part_1.coverage" NAME="pytest for test_2024_03.test_part_1 Coverage Results" MODIFIED="1733204630179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_20_test_part_1.coverage" NAME="pytest for test_2024_20.test_part_1 Coverage Results" MODIFIED="1735348601412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_06.coverage" NAME="pytest for test_2024_06 Coverage Results" MODIFIED="1733628800096" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_07_test_part_2.coverage" NAME="pytest for test_2024_07.test_part_2 Coverage Results" MODIFIED="1733695793288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_test_01_py.coverage" NAME="pytest in test_01.py Coverage Results" MODIFIED="1732760628238" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$scratch.coverage" NAME="scratch Coverage Results" MODIFIED="1734758840823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_02_test_part_2.coverage" NAME="pytest for test_2024_02.test_part_2 Coverage Results" MODIFIED="1733119291864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_test_2024_11_py.coverage" NAME="pytest in test_2024_11.py Coverage Results" MODIFIED="1733971024356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_11_test_part_2.coverage" NAME="pytest for test_2024_11.test_part_2 Coverage Results" MODIFIED="1733899913669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_17_test_scenario_5.coverage" NAME="pytest for test_2024_17.test_scenario_5 Coverage Results" MODIFIED="1735347511479" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_10_test_part_1.coverage" NAME="pytest for test_2024_10.test_part_1 Coverage Results" MODIFIED="1733813133343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_17_test_scenario_2.coverage" NAME="pytest for test_2024_17.test_scenario_2 Coverage Results" MODIFIED="1734417664528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_05_test_part_1.coverage" NAME="pytest for test_2024_05.test_part_1 Coverage Results" MODIFIED="1733378341700" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_16_test_part_2.coverage" NAME="pytest for test_2024_16.test_part_2 Coverage Results" MODIFIED="1734389428740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_test_2024_16_py.coverage" NAME="pytest in test_2024_16.py Coverage Results" MODIFIED="1735346568980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_14_test_part_1.coverage" NAME="pytest for test_2024_14.test_part_1 Coverage Results" MODIFIED="1734160667664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_19_test_part_1.coverage" NAME="pytest for test_2024_19.test_part_1 Coverage Results" MODIFIED="1734587178478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_01_test_part_2.coverage" NAME="pytest for test_01.test_part_2 Coverage Results" MODIFIED="1732760486919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023/tests" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_01_test_addition.coverage" NAME="pytest for test_01.test_addition Coverage Results" MODIFIED="1732511612481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023/tests" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_test_2024_15_py.coverage" NAME="pytest in test_2024_15.py Coverage Results" MODIFIED="1734314507989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_06_test_part_2.coverage" NAME="pytest for test_2024_06.test_part_2 Coverage Results" MODIFIED="1733681431120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_test_2024_12_py.coverage" NAME="pytest in test_2024_12.py Coverage Results" MODIFIED="1734653679322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_01_test_part_2.coverage" NAME="pytest for test_2024_01.test_part_2 Coverage Results" MODIFIED="1733032618393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_test_2024_14_py.coverage" NAME="pytest in test_2024_14.py Coverage Results" MODIFIED="1734210479416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_test_2024_13_py.coverage" NAME="pytest in test_2024_13.py Coverage Results" MODIFIED="1735527559245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_04_test_part_1.coverage" NAME="pytest for test_2024_04.test_part_1 Coverage Results" MODIFIED="1733317853357" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_15_test_part_2.coverage" NAME="pytest for test_2024_15.test_part_2 Coverage Results" MODIFIED="1735346427961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_15_test_move_left.coverage" NAME="pytest for test_2024_15.test_move_left Coverage Results" MODIFIED="1734294903724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_08_test_part_2.coverage" NAME="pytest for test_2024_08.test_part_2 Coverage Results" MODIFIED="1733640010799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_21_test_part_0.coverage" NAME="pytest for test_2024_21.test_part_0 Coverage Results" MODIFIED="1734761931598" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_01_test_compare.coverage" NAME="pytest for 01.test_compare Coverage Results" MODIFIED="1732546273646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_15_test_move_down.coverage" NAME="pytest for test_2024_15.test_move_down Coverage Results" MODIFIED="1734295469472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_11_test_part_1.coverage" NAME="pytest for test_2024_11.test_part_1 Coverage Results" MODIFIED="1733894780603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_18_test_part_1.coverage" NAME="pytest for test_2024_18.test_part_1 Coverage Results" MODIFIED="1734501403657" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_test_2024_18_py.coverage" NAME="pytest in test_2024_18.py Coverage Results" MODIFIED="1735347786281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_test_2024_07_py.coverage" NAME="pytest in test_2024_07.py Coverage Results" MODIFIED="1733695905919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_15_test_can_move_down.coverage" NAME="pytest for test_2024_15.test_can_move_down Coverage Results" MODIFIED="1734295190427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_test_2024_17_py.coverage" NAME="pytest in test_2024_17.py Coverage Results" MODIFIED="1735347601709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_09_top_level_collect.coverage" NAME="pytest for test_2024_09.top_level_collect Coverage Results" MODIFIED="1733749211225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_12_test_part_2.coverage" NAME="pytest for test_2024_12.test_part_2 Coverage Results" MODIFIED="1734643503804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_09_test_part_2.coverage" NAME="pytest for test_2024_09.test_part_2 Coverage Results" MODIFIED="1733792293549" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_05_test_part_2.coverage" NAME="pytest for test_2024_05.test_part_2 Coverage Results" MODIFIED="1733378555169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_15_test_move_right.coverage" NAME="pytest for test_2024_15.test_move_right Coverage Results" MODIFIED="1734295389011" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_in_test_2024_09_py.coverage" NAME="pytest in test_2024_09.py Coverage Results" MODIFIED="1733792698876" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_15_test_part_1.coverage" NAME="pytest for test_2024_15.test_part_1 Coverage Results" MODIFIED="1735346439404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_01_test_part_1.coverage" NAME="pytest for test_01.test_part_1 Coverage Results" MODIFIED="1732539596250" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2023/tests" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_01_test_part_1.coverage" NAME="pytest for test_2024_01.test_part_1 Coverage Results" MODIFIED="1733032971797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_08_test_part_1.coverage" NAME="pytest for test_2024_08.test_part_1 Coverage Results" MODIFIED="1733639619162" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_19_test_part_2.coverage" NAME="pytest for test_2024_19.test_part_2 Coverage Results" MODIFIED="1734587800756" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
+    <SUITE FILE_PATH="coverage/AdventOfCode$pytest_for_test_2024_17_test_get_combo_operands.coverage" NAME="pytest for test_2024_17.test_get_combo_operands Coverage Results" MODIFIED="1735347506856" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2024" />
   </component>
 </project>
