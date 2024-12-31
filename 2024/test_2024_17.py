@@ -134,8 +134,7 @@ def test_part_1(input_file_path, expected):
 
 
 @pytest.mark.parametrize('input_file_path, expected', [
-    # TODO: Fix these tests
-    # ('inputs/17/input.txt', 156985331222018)
+    ('inputs/17/input.txt', 156985331222018)
 ])
 def test_part_2(input_file_path, expected):
     actual = part2(input_file_path)
