@@ -1,131 +1,116 @@
+from collections import deque
+from functools import cache
+from itertools import product
+
 import pytest
 
-numeric_keypad = {
-    'A': (3, 2),
-    '0': (3, 1),
-    '1': (2, 0),
-    '2': (2, 1),
-    '3': (2, 2),
-    '4': (1, 0),
-    '5': (1, 1),
-    '6': (1, 2),
-    '7': (0, 0),
-    '8': (0, 1),
-    '9': (0, 2)
-}
 
-directional_keypad = {
-    '^': (0, 1),
-    'A': (0, 2),
-    '<': (1, 0),
-    'v': (1, 0),
-    '>': (1, 0),
-}
+def compute_sequences(keypad_mapping):
+    pos = {}
+    for r in range(len(keypad_mapping)):
+        for c in range(len(keypad_mapping[r])):
+            if keypad_mapping[r][c] is not None:
+                pos[keypad_mapping[r][c]] = (r, c)
+    sequences = {}
+    for x in pos:
+        for y in pos:
+            if x == y:
+                sequences[(x, y)] = ["A"]
+                continue
+            possibilities = []
+            q = deque([(pos[x], "")])
+            optimal = float("inf")
+            while q:
+                (r, c), moves = q.popleft()
+                for nr, nc, nm in [(r - 1, c, "^"), (r + 1, c, "v"), (r, c - 1, "<"), (r, c + 1, ">")]:
+                    if nr < 0 or nr >= len(keypad_mapping) or nc < 0 or nc >= len(keypad_mapping[nr]):
+                        continue
+                    if keypad_mapping[nr][nc] is None:
+                        continue
+                    if keypad_mapping[nr][nc] == y:
+                        if optimal < len(moves) + 1:
+                            break
+
+                        optimal = len(moves) + 1
+                        possibilities.append(moves + nm + "A")
+                    else:
+                        q.append(((nr, nc), moves + nm))
+                else:
+                    continue
+                break
+            sequences[(x, y)] = possibilities
+    return sequences
+
+
+numeric_keypad = [
+    ["7", "8", "9"],
+    ["4", "5", "6"],
+    ["1", "2", "3"],
+    [None, "0", "A"]
+]
+
+numeric_sequences = compute_sequences(numeric_keypad)
+
+directional_keypad = [
+    [None, "^", "A"],
+    ["<", "v", ">"]
+]
+
+directional_sequences = compute_sequences(directional_keypad)
+directional_lengths = {key: len(value[0]) for key, value in directional_sequences.items()}
 
 
 def parse_input(input_file_path: str):
     with open(input_file_path, 'r', encoding="utf-8-sig") as file:
-        codes = []
-        for line in file.readlines():
-            codes.append(list(line.strip()))
-        return codes
+        return [line.strip() for line in file.readlines()]
+
+
+def solve(input_code, keypad_mapping):
+    pairs = zip("A" + input_code, input_code)
+    options = [keypad_mapping[(a, z)] for a, z in pairs]
+    return ["".join(e) for e in product(*options)]
+
+
+@cache
+def compute_length(input_sequence, depth=25):
+    if depth == 1:
+        return sum(directional_lengths[(x, y)] for x, y in zip("A" + input_sequence, input_sequence))
+    length = 0
+    for a, z in zip("A" + input_sequence, input_sequence):
+        length += min(compute_length(e, depth - 1) for e in directional_sequences[(a, z)])
+    return length
 
 
 def part1(input_file_path: str):
-    codes = parse_input(input_file_path)
-    return 0
+    numeric_codes = parse_input(input_file_path)
+    total = 0
+
+    for numeric_code in numeric_codes:
+        possible_sequences = solve(numeric_code, numeric_sequences)
+        sequence_lengths = []
+        for possible_sequence in possible_sequences:
+            sequence_lengths.append(compute_length(possible_sequence, 2))
+        shortest_sequence_length = min(sequence_lengths)
+        total += shortest_sequence_length * int(numeric_code[:-1])  # skip the last 'A' in the numeric code
+
+    return total
 
 
 def part2(input_file_path: str):
-    towel_patterns, designs = parse_input(input_file_path)
-    return 0
+    numeric_codes = parse_input(input_file_path)
+    total = 0
 
+    for numeric_code in numeric_codes:
+        possible_sequences = solve(numeric_code, numeric_sequences)
+        shortest_sequence_length = min(map(compute_length, possible_sequences))
+        total += shortest_sequence_length * int(numeric_code[:-1])  # skip the last 'A' in the numeric code
 
-coords_to_presses = {
-    (1, 0): '^',
-    (0, 1): '>',
-    (-1, 0): 'v',
-    (0, -1): '<'
-}
-
-
-@pytest.mark.parametrize('code, expected', [
-    # TODO: Fix these tests
-    # ('029A', '<vA<AA>>^AvAA<^A>A<v<A>>^AvA^A<vA>^A<v<A>^A>AAvA^A<v<A>A>^AAAvA<^A>A'),
-    # ('980A', '<v<A>>^AAAvA^A<vA<AA>>^AvAA<^A>A<v<A>A>^AAAvA<^A>A<vA>^A<A>A'),
-    # ('179A', '<v<A>>^A<vA<A>>^AAvAA<^A>A<v<A>>^AAvA^A<vA>^AA<A>A<v<A>A>^AAAvA<^A>A'),
-    # ('456A', '<v<A>>^AA<vA<A>>^AAvAA<^A>A<vA>^A<A>A<vA>^A<A>A<v<A>A>^AAvA<^A>A'),
-    # ('379A', '<v<A>>^AvA^A<vA<AA>>^AAvA<^A>AAvA^A<vA>^AA<A>A<v<A>A>^AAAvA<^A>A')
-])
-def test_part_0(code, expected):
-    numeric_presses = code_to_numeric_presses(code)
-    directional_presses = numeric_presses_to_directional_presses(numeric_presses)
-    actual = "".join(directional_presses)
-    assert actual == expected
-
-def numeric_presses_to_directional_presses(numeric_presses):
-    numeric_presses = ['A'] + numeric_presses
-    steps = list(zip(numeric_presses, numeric_presses[1:]))
-    presses = []
-    for a,b in steps:
-        br = directional_keypad[b][0]
-        ar = directional_keypad[a][0]
-        bc = directional_keypad[b][1]
-        ac = directional_keypad[a][1]
-        vector = (br - ar, bc - ac)
-        if vector[0] > 0:
-            char = 'v'
-        else:
-            char = '^'
-
-        for r in range(abs(vector[0])):
-            presses.append(char)
-
-        if vector[1] > 0:
-            char = '>'
-        else:
-            char = '<'
-
-        for c in range(abs(vector[1])):
-            presses.append(char)
-
-    return presses
-
-def code_to_numeric_presses(code):
-    codes = list(code)
-    codes = ['A'] + codes
-    steps = list(zip(codes, codes[1:]))
-    presses = []
-    for a, b in steps:
-        br = numeric_keypad[b][0]
-        ar = numeric_keypad[a][0]
-        bc = numeric_keypad[b][1]
-        ac = numeric_keypad[a][1]
-        vector = (br - ar, bc - ac)
-        if vector[0] > 0:
-            char = 'v'
-        else:
-            char = '^'
-
-        for r in range(abs(vector[0])):
-            presses.append(char)
-
-        if vector[1] > 0:
-            char = '>'
-        else:
-            char = '<'
-
-        for c in range(abs(vector[1])):
-            presses.append(char)
-
-        presses.append('A')
-    return presses
+    return total
 
 
 @pytest.mark.parametrize("input_file_path, expected", [
-    # TODO: Fix these tests
-    # ('inputs/21/example.txt', 126384),
-    # ('inputs/21/input.txt', 1351)
+    ('inputs/21/example.txt', 126384),
+    ('inputs/21/input.txt', 125742)
 ])
 def test_part_1(input_file_path, expected):
     actual = part1(input_file_path)
@@ -133,9 +118,7 @@ def test_part_1(input_file_path, expected):
 
 
 @pytest.mark.parametrize('input_file_path, expected', [
-    # TODO: Fix these tests
-    # ('inputs/21/example.txt', 16),
-    # ('inputs/21/input.txt', 732978410442050)
+    ('inputs/21/input.txt', 157055032722640)
 ])
 def test_part_2(input_file_path, expected):
     actual = part2(input_file_path)
