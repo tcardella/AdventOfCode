@@ -1,5 +1,5 @@
+import functools
 from collections import deque
-from functools import cache
 from itertools import product
 
 import pytest
@@ -71,7 +71,7 @@ def solve(input_code, keypad_mapping):
     return ["".join(e) for e in product(*options)]
 
 
-@cache
+@functools.lru_cache(maxsize=None)
 def compute_length(input_sequence, depth=25):
     if depth == 1:
         return sum(directional_lengths[(x, y)] for x, y in zip("A" + input_sequence, input_sequence))
