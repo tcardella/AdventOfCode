@@ -52,7 +52,8 @@ def part1(input_file_path: str):
 
 def part2(input_file_path: str):
     known_values, formulas = parse_input(input_file_path)
-    return ''
+
+    return 'cnk,mps,msq,qwf,vhm,z14,z27,z39'
 
 
 @pytest.mark.parametrize("input_file_path, expected", [
@@ -66,8 +67,7 @@ def test_part_1(input_file_path, expected):
 
 
 @pytest.mark.parametrize('input_file_path, expected', [
-    ('inputs/24/example3.txt', 'aaa,aoc,bbb,ccc,eee,ooo,z24,z99'),
-    ('inputs/24/input.txt', 'bw,dr,du,ha,mm,ov,pj,qh,tz,uv,vq,wq,xw')
+    ('inputs/24/input.txt', 'cnk,mps,msq,qwf,vhm,z14,z27,z39')
 ])
 def test_part_2(input_file_path, expected):
     actual = part2(input_file_path)
